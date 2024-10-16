@@ -72,11 +72,11 @@ const sr = ScrollReveal({
     distance: '60px',
     duration: 3000,
     delay: 400,
-    // reset: true // Uncomment jika ingin animasi diulang
+    reset: false // Uncomment jika ingin animasi diulang
 });
 
 // Memanggil reveal untuk elemen .home__data
-sr.reveal('.home__data');
+sr.reveal('.home__data, .card');
 sr.reveal('.about__data', {origin: 'right'});
 sr.reveal('.about__image', {origin: 'left'});
 sr.reveal('.about__image', {origin: 'left'});

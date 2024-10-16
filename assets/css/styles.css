@@ -455,7 +455,7 @@ img {
 .tab {
   display: none;
   padding: 15px 50px;
-  max-width: 1100px;
+  max-width: 100%;
 }
 
 .tab.active {
@@ -511,33 +511,197 @@ img {
   text-shadow: var(--text-shadow);
 }
 
-@media screen and (max-width: 1050px) {
-  section {
-      margin: 0 0px;
+/* UMKM Responsive */
+@media screen and (max-width: 1150px) {
+  .tab-nav-bar {
+    margin: 65px 20px 40px 25px;
   }
 
-  .tab-nav-bar {
-      margin: 65px 20px 40px 25px;
-  } 
+  .tab-menu {
+    padding: 10px 15px;
+  }
+
+  .tab-btn {
+    padding: 10px 15px;
+  }
 
   .tab {
-      padding: 15px 25px;
-  } 
+    padding: 15px 25px;
+  }
 
   .tab .row {
-      flex-direction: column;
+    flex-direction: column;
   }
 
   .tab .img-card {
-      width: auto;
-      max-width: 600px;
+    width: auto;
+    max-width: 600px;
   }
 
-  .country {
-      font-size: 10vw;
-      padding-bottom: 50px;
+  .right-column {
+    max-width: 100%;
+  }
+
+  .info .city, .info .description p {
+    font-size: 1.2em;
+  }
+
+  .info .city {
+    font-size: 1.8em;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .tab-nav-bar {
+    margin: 65px 15px 40px 20px;
+  }
+
+  .tab-menu {
+    padding: 10px 10px;
+  }
+
+  .tab-btn {
+    padding: 10px 10px;
+  }
+
+  .tab {
+    padding: 15px 20px;
+  }
+
+  .tab .img-card {
+    width: auto;
+    max-width: 400px;
+  }
+
+  .right-column {
+    max-width: 100%;
+  }
+
+  .info .city, .info .description p {
+    font-size: 1em;
+  }
+
+  .info .city {
+    font-size: 1.5em;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  .tab-nav-bar {
+    margin: 65px 10px 40px 15px;
+  }
+
+  .tab-menu {
+    padding: 10px 5px;
+  }
+
+  .tab-btn {
+    padding: 10px 5px;
+  }
+
+  .tab {
+    padding: 15px 15px;
+  }
+
+  .tab .img-card {
+    width: auto;
+    max-width: 300px;
+  }
+
+  .right-column {
+    max-width: 100%;
+  }
+
+  .info .city, .info .description p {
+    font-size: 0.8em;
+  }
+
+  .info .city {
+    font-size: 1.2em;
+  }
+}
+
+/*=============== explorer ===============*/
+.explore__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tiga kartu per baris */
+  grid-auto-rows: 1fr; /* Buat baris baru secara otomatis */
+  gap: 30px; /* Jarak antar kartu */
+  padding: 20px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card__img {
+  width: 100%;
+  height: 200px; /* Set a fixed height for uniformity */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.card__content {
+  padding: 15px;
+  background-color: var(--container-color);
+  color: var(--text-color);
+  text-align: center;
+}
+
+.card__title {
+  font-size: var(--h2-font-size);
+  margin: 10px 0;
+}
+
+.card__description {
+  font-size: var(--normal-font-size);
+  color: var(--text-color-light);
+}
+
+/* Hover Effects */
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .card__img {
+  transform: scale(1.1);
+}
+
+@media screen and (min-width: 1024px) {
+  .explore__container {
+      grid-template-columns: repeat(3, 1fr); /* Three cards per row */
+      gap: 30px; /* Increased gap for better spacing */
+  }
+
+  .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      /* Optional: Increase shadow effect for larger screens */
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .card__title {
+      font-size: 1.5rem; /* Larger title font size */
+  }
+
+  .card__description {
+      font-size: 1rem; /* Larger description font size */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .explore__container {
+      grid-template-columns: 1fr; /* Satu kartu per baris untuk layar kecil */
+      gap: 15px; /* Jarak antar kartu yang lebih kecil */
+  }
+}
+
 
 
 /*=============== FOOTER ===============*/
@@ -666,16 +830,50 @@ img {
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
 @media screen and (max-width: 340px) {
-  .container {
-    margin-inline: 1rem;
+  .home__title {
+    font-size: 1.5rem;
   }
 
+  .home__subtitle, .home__description {
+    font-size: .875rem;
+  }
+
+  .tab-btn {
+    padding: 8px;
+    font-size: 0.75rem;
+  }
+
+  .tab .img-card {
+    max-width: 250px;
+  }
+
+  .info .city {
+    font-size: 1rem;
+  }
+
+  .info .description p {
+    font-size: 0.75rem;
+  }
+
+  .footer__logo {
+    font-size: 1.25rem;
+  }
+
+  .footer__social-link {
+    font-size: 1rem;
+  }
+
+  .footer__copy {
+    font-size: 0.65rem;
+  }
 }
+
 
 /* For medium devices */
 @media screen and (min-width: 576px) {
   .home__container,
-  .about__container {
+  .about__container,
+  .explore__contect {
     grid-template-columns: 380px;
     justify-content: center;
   }
@@ -691,6 +889,10 @@ img {
   .about__data,
   .about__data .section__title {
     text-align: initial;
+  }
+
+  .explore__img {
+    width: 100vw;
   }
 
   .footer__group {
@@ -709,6 +911,10 @@ img {
   .nav__close,
   .nav__toggle {
     display: none;
+  }
+
+  .explore__img {
+        height: 600px;
   }
 
   .nav__list {
@@ -772,6 +978,20 @@ img {
 
   .about__img {
     width: 460px;
+  }
+
+  .explore__img {
+    height: 600px;
+  }
+
+  .explore__contect {
+    padding-top: 28rem;
+    grid-template-columns: 670px 1fr;
+  }
+
+  .explore__data,
+  .explore__data .section__title {
+    text-align: initial;
   }
   
   .footer {
