@@ -637,6 +637,9 @@ img {
   border-radius: 10px;
   box-shadow: var(--box-shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex; /* Make card a flex container */
+  flex-direction: column; /* Stack children vertically */
+  height: 100%; /* Allow card to take full height of its container */
 }
 
 .card__img {
@@ -652,6 +655,10 @@ img {
   background-color: var(--container-color);
   color: var(--text-color);
   text-align: center;
+  flex-grow: 1; /* Allow content to take available space */
+  display: flex; /* Make content a flex container */
+  flex-direction: column; /* Stack title and description */
+  justify-content: space-between; /* Space out title and description */
 }
 
 .card__title {
@@ -705,65 +712,51 @@ img {
 
 
 /*=============== FOOTER ===============*/
-.footer {
-  padding-block: 2.5rem;
-  background-color: var(--container-color);
+.footer__team {
+  display: flex;
+  flex-direction: column; /* Default to column for mobile */
+  align-items: center; /* Center items horizontally */
+  padding: 2rem 0; /* Add some padding for better spacing */
+  justify-content: center; /* Center title and members horizontally */
 }
 
-.footer__content {
-  row-gap: 3.5rem;
+.footer__team-title {
+  text-align: center; /* Center the title */
+  margin-bottom: 1.5rem; /* Space between title and members */
 }
 
-.footer__logo {
-  display: inline-block;
-  color: var(--title-color);
-  font-size: var(--h2-font-size);
-  font-family: var(--second-font);
-  font-weight: var(--font-semi-bold);
-  margin-bottom: 1rem;
+.footer__team-member {
+  display: flex;
+  flex-direction: column; /* Stack members vertically on mobile */
+  align-items: center; /* Center members horizontally */
+  margin-bottom: 1rem; /* Space between members */
+  flex-basis: auto; /* Use automatic width based on content */
 }
 
-.footer__group,
 .footer__social {
   display: flex;
+  column-gap: 0.5rem; /* Reduced space between social icons */
 }
 
-.footer__group {
-  margin-top: 5rem;
-  flex-direction: column;
-  align-items: center;
-  row-gap: 2rem;
-  padding-inline: 1rem;
+@media screen and (min-width: 768px) {
+  .footer__team {
+    flex-direction: row; /* Change to row for larger screens */
+    justify-content: center; /* Center members horizontally */
+    flex-wrap: wrap; /* Allow wrapping of members if needed */
+  }
+
+  .footer__team-title {
+    flex-basis: 100%; /* Make title take full width */
+    text-align: center; /* Ensure title remains centered */
+    margin-bottom: 2rem; /* Space between title and members */
+  }
+
+  .footer__team-member {
+    flex-basis: calc(33.33% - 1rem); /* Adjust for space between members */
+    margin-bottom: 0.5rem; /* Keep the reduced space */
+  }
 }
 
-.footer__social {
-  column-gap: 1.5rem;
-}
-
-.footer__social-link {
-  color: var(--text-color);
-  font-size: 1.25rem;
-  transition: color .4s, transform .4s;
-  -webkit-transition: color .4s, transform .4s;
-  -moz-transition: color .4s, transform .4s;
-  -ms-transition: color .4s, transform .4s;
-  -o-transition: color .4s, transform .4s;
-}
-
-.footer__social-link:hover {
-  color: var(--title-color);
-  transform: translateY(-.25rem);
-  -webkit-transform: translateY(-.25rem);
-  -moz-transform: translateY(-.25rem);
-  -ms-transform: translateY(-.25rem);
-  -o-transform: translateY(-.25rem);
-}
-
-.footer__copy {
-  font-size:var(--smaller-font-size);
-  color: var(--text-color-light);
-  text-align: center;
-}
 
 /*=============== SCROLL BAR ===============*/
 ::-webkit-scrollbar {
