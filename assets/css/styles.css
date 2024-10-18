@@ -712,6 +712,11 @@ img {
 
 
 /*=============== FOOTER ===============*/
+.footer {
+  padding-block: 2.5rem;
+  background-color: var(--container-color);
+}
+
 .footer__team {
   display: flex;
   flex-direction: column; /* Default to column for mobile */
@@ -847,18 +852,6 @@ img {
   .info .description p {
     font-size: 0.75rem;
   }
-
-  .footer__logo {
-    font-size: 1.25rem;
-  }
-
-  .footer__social-link {
-    font-size: 1rem;
-  }
-
-  .footer__copy {
-    font-size: 0.65rem;
-  }
 }
 
 
@@ -886,15 +879,6 @@ img {
 
   .explore__img {
     width: 100vw;
-  }
-
-  .footer__group {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .footer__copy {
-    order: -1;
   }
 
 }
@@ -989,22 +973,6 @@ img {
   
   .footer {
     padding-block: 5rem 3rem;
-  }
-
-  .footer__title {
-    margin-bottom: 1.5rem;
-  }
-
-  .footer__group {
-    margin-top: 7rem;
-  }
-
-  .footer__social {
-    column-gap: 2rem;
-  }
-
-  .footer__social-link {
-    font-size: 1.5rem;
   }
 
   .scrollup {
