@@ -153,11 +153,20 @@ const tab_Nav = function(tabBtnClick) {
     });
 
     tabs.forEach((tab) => {
-        tab.classList.remove("active")
+        tab.classList.remove("active");
+        // Untuk menunggu efek transisi sebelum menghapus display
+        tab.addEventListener('transitionend', () => {
+            if (!tab.classList.contains("active")) {
+                tab.style.display = "none"; // Sembunyikan setelah transisi
+            }
+        });
     });
 
     tabBtns[tabBtnClick].classList.add("active");
-    tabs[tabBtnClick].classList.add("active");
+    tabs[tabBtnClick].style.display = "block"; // Tampilkan tab baru
+    setTimeout(() => {
+        tabs[tabBtnClick].classList.add("active"); // Tambahkan kelas aktif setelah ditampilkan
+    }, 10); // Sedikit jeda untuk memastikan tab ditampilkan sebelum kelas aktif ditambahkan
 }
 
 tabBtns.forEach((tabBtn, i) => {
