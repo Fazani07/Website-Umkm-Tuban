@@ -76,7 +76,11 @@ const sr = ScrollReveal({
 });
 
 // Memanggil reveal untuk elemen .home__data
-sr.reveal('.home__data, .card');
+sr.reveal('.home__data');
+sr.reveal('.card', { origin: 'bottom' }); 
+sr.reveal('.section__title', { origin: 'bottom' }); 
+sr.reveal('.tab-nav-bar', { origin: 'bottom' }); 
+sr.reveal('.tab-content', { origin: 'left' }); 
 sr.reveal('.about__data', {origin: 'right'});
 sr.reveal('.about__image', {origin: 'left'});
 sr.reveal('.about__image', {origin: 'left'});
